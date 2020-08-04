@@ -2,7 +2,8 @@ class PagesController < ApplicationController
 
 def main
 require 'socket'
-render plain: "Host: #{Socket.gethostname} \nPrivate IP: #{Socket.ip_address_list.detect(&:ipv4_private?).try(:ip_address)}\nGit version: #{`git show --pretty=%H___%ai -q`}"
+idenfier_str = "AAA"
+render plain: "Host: #{Socket.gethostname} \nPrivate IP: #{Socket.ip_address_list.detect(&:ipv4_private?).try(:ip_address)}\nGit version: #{`git show --pretty=%H___%ai -q`} Identifier: #{idenfier_str}"
 #render plain: debug(request) # .inspect
 end
 
