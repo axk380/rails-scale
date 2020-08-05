@@ -50,6 +50,6 @@ test:
 production:
   <<: *default
   database: rails_scale
-  username: hownow-school
+  username: root
   password: password
 
