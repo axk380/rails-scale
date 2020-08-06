@@ -52,4 +52,6 @@ production:
   database: rails_scale
   username: root
   password: password
+  host: rails-scale.cc3vivx7pqcy.ap-south-1.rds.amazonaws.com
+  post: 3306
 
