@@ -32,7 +32,24 @@ server '52.66.246.71', user: 'deploy', roles: %w{web app db}
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
+set :stage, :production
+set :branch, 'master'
 
+# Foreman syntax
+# ==================
+
+namespace :deploy do
+
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute :touch, release_path.join('tmp/restart.txt')
+    end
+  end
+
+	after :publishing, :restart
+
+end
 
 # Custom SSH Options
 # ==================
